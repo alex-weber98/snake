@@ -365,11 +365,13 @@ function getEmptyField(){
     
     let loggingObject = new Object();
     let emptyField = false;
-    
+    let nextField = getNextField();
+
+
     while(!emptyField){
         loggingObject.x = Math.floor(Math.random() * fieldsCount);
         loggingObject.y = Math.floor(Math.random() * fieldsCount);
-        emptyField = checkIfEmpty(loggingObject.x, loggingObject.y);  
+        emptyField = checkIfEmpty(loggingObject.x, loggingObject.y) && (loggingObject.x != nextField.x || loggingObject.y != nextField.y);  
         console.log(loggingObject.x + " " + loggingObject.y)
     }
     
