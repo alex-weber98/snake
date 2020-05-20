@@ -12,20 +12,6 @@
 html, body{
     overflow: hidden;
 }
-@media (pointer:none), (pointer:coarse) {
-    html, body{
-        overflow: visible;
-    }
-
-    .columnLeft{
-        width: 0%;
-    }
-
-    .columnMiddle{
-        width:  100%;
-    }
-
-}
 
 body{
     background: #505050;
@@ -336,3 +322,41 @@ input[type=checkbox]:disabled+label {
   }
 
 
+@media (pointer:none), (pointer:coarse) {
+    html, body{
+        overflow: visible;
+    }
+
+    .row{
+        display: grid;
+    }
+
+    .columnLeft{
+        width: 0%;
+    }
+
+    .columnMiddle{
+        width:  100%;
+    }
+
+    .columnRight{
+        width: 100%;
+        text-align: center;
+    }
+
+    .options{
+        text-align: center;
+        margin: 0px;
+        padding: 0px;
+        width: 100%;
+    }
+
+    .option{
+        text-align: center;
+    }
+
+    footer{
+        resize: vertical;
+    }
+
+}
