@@ -55,6 +55,8 @@ function handleTouchMove(evt){
             currentDirection = directions.Down;
             break;
     }
+
+    notification.innerHTML = evt;
 }
 
 
