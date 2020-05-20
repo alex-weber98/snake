@@ -20,15 +20,6 @@ html, body{
 
 }
 
-
-
-@media (pointer:none), (pointer:coarse) {
-    
-    /*html, body{
-        overflow: visible;
-    }*/
-}
-
 body{
     background: #505050;
     box-sizing: border-box;
