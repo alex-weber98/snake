@@ -13,11 +13,11 @@ html, body{
     overflow: hidden;
 }
 @media (pointer:none), (pointer:coarse) {
-    /*
+
     html, body{
         overflow: visible;
     }
-    */
+
 
 }
 
