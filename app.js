@@ -29,6 +29,37 @@ const cbxLabel = document.getElementById("cbxLabel");
 cbxBorder.checked = true;
 
 
+document.addEventListener('touchstart', handleTouchStart, false);        
+document.addEventListener('touchmove', handleTouchMove, false);
+
+function handleTouchStart(evt){
+
+}
+
+function handleTouchMove(evt){
+    switch(evt){
+        case Down:
+            currentDirection = directions.Down;
+            break;
+
+        case Up:
+            currentDirection = directions.Up;
+            break;
+
+        case Right:
+            currentDirection = directions.Right;
+            break;
+
+        case Left:
+            currentDirection = directions.Left;
+            break;
+
+    }
+}
+
+
+
+
 var interval ;// for move loop
 var score = 0;
 var currentDirection = 39;
