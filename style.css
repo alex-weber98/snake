@@ -15,9 +15,9 @@ html, body{
 
 @media (pointer:none), (pointer:coarse) {
     
-    html, body{
+    /*html, body{
         overflow: visible;
-    }
+    }*/
 }
 
 body{
