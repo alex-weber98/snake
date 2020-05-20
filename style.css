@@ -12,6 +12,15 @@
 html, body{
     overflow: hidden;
 }
+@media (pointer:none), (pointer:coarse) {
+    
+    html, body{
+        overflow: visible;
+    }
+
+}
+
+
 
 @media (pointer:none), (pointer:coarse) {
     
@@ -151,7 +160,7 @@ footer{
     padding: 20px;
     text-align: center;
     color: white;
-    margin: 10px 0px;
+    margin-top: 10px;
 }
 
 #copyright{
@@ -332,4 +341,5 @@ input[type=checkbox]:disabled+label {
     pointer-events: none;
     opacity: 50%;
   }
+
 

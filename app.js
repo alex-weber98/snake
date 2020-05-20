@@ -33,12 +33,12 @@ document.addEventListener('touchstart', handleTouchStart, false);
 document.addEventListener('touchmove', handleTouchMove, false);
 
 
-function handleTouchStart(evt){
 
 }
 
 function handleTouchMove(evt){
     switch(evt){
+
         case Left:
             currentDirection = directions.Left;
             break;
@@ -59,6 +59,24 @@ function handleTouchMove(evt){
     notification.innerHTML = evt;
 }
 
+        case Down:
+            currentDirection = directions.Down;
+            break;
+
+        case Up:
+            currentDirection = directions.Up;
+            break;
+
+        case Right:
+            currentDirection = directions.Right;
+            break;
+
+        case Left:
+            currentDirection = directions.Left;
+            break;
+
+    }
+}
 
 var interval ;// for move loop
 var score = 0;
@@ -246,6 +264,7 @@ function Move(){
         let x = logs.pop();
         clearField(x.x, x.y);
     }
+
     logs.unshift(nextField);
     drawSnake(nextField.x, nextField.y);
 
@@ -371,9 +390,13 @@ function getEmptyField(){
     while(!emptyField){
         loggingObject.x = Math.floor(Math.random() * fieldsCount);
         loggingObject.y = Math.floor(Math.random() * fieldsCount);
+
         emptyField = checkIfEmpty(loggingObject.x, loggingObject.y) && (loggingObject.x != nextField.x || loggingObject.y != nextField.y);  
-        console.log(loggingObject.x + " " + loggingObject.y)
-    }
+        
+        let field = getNextField();
+
+        emptyField = checkIfEmpty(loggingObject.x, loggingObject.y) && (loggingObject.x != field.x || loggingObject.y != field.y);  
+
     
     console.log(loggingObject.x + " " + loggingObject.y)
     return loggingObject;
