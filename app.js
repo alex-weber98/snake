@@ -35,7 +35,7 @@ document.addEventListener('touchmove', handleTouchMove, false);
 
 var xDown = null;                                                        
 var yDown = null;  
-function handleTouchStart(){
+function handleTouchStart(evt){
     xDown = evt.touches[0].clientX;                                      
     yDown = evt.touches[0].clientY;    
 }
