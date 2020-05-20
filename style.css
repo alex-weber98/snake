@@ -1,0 +1,328 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap:wght@400;500;700&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Asap, sans-serif;
+
+}
+
+html, body{
+    overflow: hidden;
+}
+
+body{
+    background: #505050;
+    box-sizing: border-box;
+    min-height: 800px;
+}
+
+header{
+    background: #505050;
+    padding: 20px;
+    text-align: center;
+}
+
+.row{
+    display: flex;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+.columnLeft{
+    float: left;
+    width: 33%;
+}
+
+.columnMiddle{
+    float: left;
+    width: 34%;
+    min-width: 600px;
+}
+
+.columnRight{
+    float: left;
+    width: 33%;
+    min-width: 300px;
+}
+
+
+#notificationMessage{
+    color: white;
+    position: absolute;
+    font-size: 40px;
+    width: 100%;
+    margin: auto;
+    top:  calc(50% - 20px);
+
+    -webkit-text-stroke: 2px black;
+    /*text-shadow:
+    3px 3px 0 #000,
+    -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;*/
+}
+
+.headerText{
+    display: inline-block;
+    margin: 10px;
+}
+
+
+.headerText > h1{
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 10px 10px 20px black;
+}
+
+.headerText > h2{
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    /*text-shadow: 5px 5px 10px black;*/
+}
+
+.wrapper{
+    text-align: center;
+    padding: 30px;
+    margin: 20px;
+}
+
+.field{
+
+    margin: 10px;
+    display: inline-block;
+    position: relative;
+    align-self: center;
+}
+
+.scoreBoard{
+    color: white; 
+    position: absolute;
+    top: -40px;
+    left: 20px;
+}
+
+.scoreBoard > span{
+    
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+button{
+    color: white;
+    background-color: #4CAF50;
+    font-size: 30px;
+    border: 2px solid black;
+    border-radius: 10%;
+    padding: 5px 10px;
+    margin: 10px;
+    transition: 0.3s;
+}
+
+#btnStart:hover{
+    background: red;
+}
+
+
+
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: #505050;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    margin: 10px 0px;
+}
+
+#copyright{
+    margin-right: 30px;
+    text-align: right;
+}
+
+#copyrightText{
+    font-size: 25px;
+    letter-spacing: 1px;
+    text-shadow: 5px 5px 10px black;
+}
+
+.options{
+    /*background: #007013;*/
+    margin-top: 50px;
+    margin-left: 50px;
+    padding: 100px 0px;
+    width: 50%;
+    text-align: center;
+}
+
+.num{
+    color: white;
+    background: none;
+    border:  none;
+    font-size: 30px;
+    width: 70px;
+  }
+
+#cbxBorder{
+    color: white;
+    background: none;
+    border:  none;
+    font-size: 30px;
+}
+
+
+.option{
+    margin: 20px 0px;
+}
+
+.slider{
+    -webkit-appearance: none;
+    width: 200px;
+    height: 10px;
+    border-radius: 3px;
+    background-color: white;
+    outline: none;
+}
+
+.info{
+    color: white;
+    font-size: 18px;
+    margin: 5px;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%; 
+    background: #4CAF50;
+    cursor: pointer;
+  }
+
+
+#canvas{
+    border: 5px solid black;
+    border-radius: 5px;
+}
+
+@keyframes blink { 
+    50% { border-color: #ffffff; } 
+ }
+ .blinkingBorder{ /*or other element you want*/
+     animation: blink 0.6s step-end infinite alternate;
+ }
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+ .toggle {
+    position: relative;
+    display: block;
+    width: 40px;
+    height: 20px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transform: translate3d(0, 0, 0);
+  }
+  .toggle:before {
+    content: "";
+    position: relative;
+    top: 3px;
+    left: 3px;
+    width: 34px;
+    height: 14px;
+    display: block;
+    background: #9A9999;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+  }
+  .toggle span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    display: block;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(154, 153, 153, 0.5);
+    transition: all 0.2s ease;
+  }
+  /*
+  .toggle span:before {
+    content: "";
+    position: absolute;
+    display: block;
+    margin: -18px;
+    width: 56px;
+    height: 56px;
+    background: rgba(79, 46, 220, 0.5);
+    border-radius: 50%;
+    transform: scale(0);
+    opacity: 1;
+    pointer-events: none;
+  }
+  */
+
+  #cbx:checked + .toggle:before {
+    background: #c0ed8a;
+  }
+  #cbx:checked + .toggle span {
+    background: #4CAF50;
+    transform: translateX(20px);
+    transition: all 0.2s cubic-bezier(0.8, 0.4, 0.3, 1.25), background 0.15s ease;
+    /*box-shadow: 0 10px 8px rgba(79, 46, 220, 0.2);*/
+  }
+
+
+  #cbx:checked + .toggle span:before {
+    transform: scale(1);
+    opacity: 0;
+    transition: all 0.4s ease;
+  }
+
+.toggle:disabled {
+    background-color:  gray;
+    pointer-events: none;
+    opacity: 50%;
+  }
+
+  
+.center {
+    position: relative;
+    top: calc(50% - 10px);
+    left: calc(50% - 20px);
+  }
+
+
+
+
+  
+:disabled{
+    background-color:  gray;
+    pointer-events: none;
+    opacity: 50%;
+}
+
+input[type=checkbox]:disabled+label {
+    /* and changes its color to gray */
+    color: gray;      
+    pointer-events: none;
+    opacity: 50%;
+  }
+
