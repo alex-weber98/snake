@@ -16,6 +16,15 @@ html, body{
     html, body{
         overflow: visible;
     }
+
+    .columnLeft{
+        width: 0%;
+    }
+
+    .columnMiddle{
+        width:  100%;
+    }
+
 }
 
 body{
