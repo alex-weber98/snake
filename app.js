@@ -20,7 +20,7 @@ btnStart.onclick = function() {StartingGame()};
 const cbxBorder = document.getElementById("cbx");
 cbxBorder.onclick = function() {onCheckboxClick()};
 
-const notification = document.getElementById("notificationMessage")
+const notification = document.getElementById("notificationMessage");
 
 const numFieldCount = document.getElementById("numFieldsize");
 numFieldCount.onchange = function() {fieldSizeChange()};
@@ -32,9 +32,10 @@ cbxBorder.checked = true;
 document.addEventListener('touchstart', handleTouchStart, false);        
 document.addEventListener('touchmove', handleTouchMove, false);
 
-
+function handleTouchStart(){
 
 }
+
 
 function handleTouchMove(evt){
     switch(evt){
@@ -59,24 +60,6 @@ function handleTouchMove(evt){
     notification.innerHTML = evt;
 }
 
-        case Down:
-            currentDirection = directions.Down;
-            break;
-
-        case Up:
-            currentDirection = directions.Up;
-            break;
-
-        case Right:
-            currentDirection = directions.Right;
-            break;
-
-        case Left:
-            currentDirection = directions.Left;
-            break;
-
-    }
-}
 
 var interval ;// for move loop
 var score = 0;
@@ -391,17 +374,15 @@ function getEmptyField(){
         loggingObject.x = Math.floor(Math.random() * fieldsCount);
         loggingObject.y = Math.floor(Math.random() * fieldsCount);
 
-        emptyField = checkIfEmpty(loggingObject.x, loggingObject.y) && (loggingObject.x != nextField.x || loggingObject.y != nextField.y);  
-        
         let field = getNextField();
 
         emptyField = checkIfEmpty(loggingObject.x, loggingObject.y) && (loggingObject.x != field.x || loggingObject.y != field.y);  
 
-    
+    }
     console.log(loggingObject.x + " " + loggingObject.y)
     return loggingObject;
-}
 
+}
 function checkIfEmpty(x, y){
     let result = true;
     for(let i = 0; i < logs.length; i++){
@@ -432,4 +413,3 @@ function fieldSizeChange(){
 function RefreshSpeedValue(){
     speedValueText.innerHTML = speed.value;
 }
-
