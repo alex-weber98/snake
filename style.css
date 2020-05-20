@@ -13,10 +13,11 @@ html, body{
     overflow: hidden;
 }
 @media (pointer:none), (pointer:coarse) {
-    
+    /*
     html, body{
         overflow: visible;
     }
+    */
 
 }
 
@@ -69,12 +70,6 @@ header{
     top:  calc(50% - 20px);
 
     -webkit-text-stroke: 2px black;
-    /*text-shadow:
-    3px 3px 0 #000,
-    -1px -1px 0 #000,  
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000;*/
 }
 
 .headerText{
