@@ -246,6 +246,7 @@ function Move(){
         let x = logs.pop();
         clearField(x.x, x.y);
     }
+
     logs.unshift(nextField);
     drawSnake(nextField.x, nextField.y);
 
@@ -369,7 +370,10 @@ function getEmptyField(){
     while(!emptyField){
         loggingObject.x = Math.floor(Math.random() * fieldsCount);
         loggingObject.y = Math.floor(Math.random() * fieldsCount);
-        emptyField = checkIfEmpty(loggingObject.x, loggingObject.y);  
+        
+        let field = getNextField();
+
+        emptyField = checkIfEmpty(loggingObject.x, loggingObject.y) && (loggingObject.x != field.x || loggingObject.y != field.y);  
         console.log(loggingObject.x + " " + loggingObject.y)
     }
     
