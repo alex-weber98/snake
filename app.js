@@ -32,30 +32,44 @@ cbxBorder.checked = true;
 document.addEventListener('touchstart', handleTouchStart, false);        
 document.addEventListener('touchmove', handleTouchMove, false);
 
-function handleTouchStart(){
 
+var xDown = null;                                                        
+var yDown = null;  
+function handleTouchStart(){
+    xDown = evt.touches[0].clientX;                                      
+    yDown = evt.touches[0].clientY;    
 }
 
 
 function handleTouchMove(evt){
-    switch(evt){
-
-        case Left:
-            currentDirection = directions.Left;
-            break;
-            
-        case Right:
-            currentDirection = directions.Right;
-            break;
-            
-        case Up:
-            currentDirection = directions.Up;
-            break;
-            
-        case Down:
-            currentDirection = directions.Down;
-            break;
+    if ( ! xDown || ! yDown ) {
+        return;
     }
+    var xUp = evt.touches[0].clientX;                                    
+    var yUp = evt.touches[0].clientY;
+    var xDiff = xDown - xUp;
+    var yDiff = yDown - yUp;
+
+    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+        if ( xDiff > 0 ) {
+            currentDirection = directions.Left;
+        /* left swipe */ 
+        } else {
+            currentDirection = directions.Right;
+        /* right swipe */
+        }                       
+    } else {
+        if ( yDiff > 0 ) {
+            currentDirection = directions.Up;
+        /* up swipe */ 
+        } else { 
+            currentDirection = directions.Down;
+        /* down swipe */
+        }                                                                 
+    }
+    /* reset values */
+    xDown = null;
+    yDown = null;   
 
     notification.innerHTML = evt;
 }
@@ -265,7 +279,10 @@ function drawSnake(x, y){
     const spacing = 2;
     ctx.fillStyle = "#FF0000";
     ctx.fillRect(x*fieldsSize + spacing, y *fieldsSize + spacing, fieldsSize -spacing * 2, fieldsSize -spacing *2);
-
+    //ctx.strokeStyle = "black";
+    //ctx.lineWidth = "2";
+    //ctx.rect(x*fieldsSize + 1, y *fieldsSize + 1, fieldsSize -2, fieldsSize - 2);
+    //ctx.stroke();
 }
 
 function createApple(){
