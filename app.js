@@ -251,11 +251,16 @@ function lockYAxis(boolean){
     
     if(isMobile){
         
+        let dom = document.getElementsByTagName("html")[0];
+
         if(boolean){
-            document.getElementsByTagName("html")[0].style.overflowY = "hidden";
+
+            //dom.style.overflowY = "hidden";
+            dom.position = "fixed"
         }
         else{
-            document.getElementsByTagName("html")[0].style.overflowY = "scroll";
+           //dom.style.overflowY = "scroll";
+           dom.position = "fixed"
         }
     }  
     
