@@ -173,15 +173,16 @@ async function StartingGame(){
     setUpGame();
     optionsDisable(true);
 
+    scrollToTop();
+    await sleep(250);
+    lockYAxis(true);
+
     notification.innerHTML = 3;
     await sleep(1000);
     notification.innerHTML = 2;
     await sleep(1000);
-    scrollToTop();
     notification.innerHTML = 1;
     await sleep(1000);
-
-    lockYAxis(true);
 
     startGame();
 }
