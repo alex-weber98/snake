@@ -1,6 +1,3 @@
-// import colors from "./colors";
-
-
 const canvas = document.getElementById("canvas");
 
 var ctx = canvas.getContext("2d");
@@ -27,8 +24,8 @@ numFieldCount.onchange = function() {fieldSizeChange()};
 const cbxLabel = document.getElementById("cbxLabel");
 cbxBorder.checked = true;
 
-canvas.addEventListener('touchstart', handleTouchStart, false);        
-canvas.addEventListener('touchmove', handleTouchMove, false);
+document.addEventListener('touchstart', handleTouchStart, false);  
+document.addEventListener('touchmove', handleTouchMove, false);
 
 var isMobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i)
 
@@ -255,11 +252,11 @@ function lockYAxis(boolean){
 
         if(boolean){
 
-            //dom.style.overflowY = "hidden";
+            dom.style.overflowY = "hidden";
             dom.position = "fixed"
         }
         else{
-           //dom.style.overflowY = "scroll";
+           dom.style.overflowY = "scroll";
            dom.position = "fixed"
         }
     }  
