@@ -249,15 +249,21 @@ function lockYAxis(boolean){
     if(isMobile){
         
         let dom = document.getElementsByTagName("html")[0];
+        let domSettings = document.getElementsByClassName("columnRight")[0];
+        let domFooter = document.getElementsByTagName("footer")[0];
 
         if(boolean){
 
             dom.style.overflowY = "hidden";
-            dom.position = "fixed"
+            dom.position = "fixed";
+            domSettings.style.display = "none"
+            domFooter.style.display = "none"
         }
         else{
            dom.style.overflowY = "scroll";
-           dom.position = "fixed"
+           dom.position = "fixed";
+           domSettings.style.display = "block";
+           domFooter.style.display = "block";
         }
     }  
     
