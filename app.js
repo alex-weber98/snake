@@ -254,16 +254,16 @@ function lockYAxis(boolean){
 
         if(boolean){
 
-            dom.style.overflowY = "hidden";
-            dom.position = "fixed";
             domSettings.style.display = "none"
             domFooter.style.display = "none"
+            dom.style.overflowY = "hidden";
+            dom.position = "fixed";
         }
         else{
-           dom.style.overflowY = "scroll";
-           dom.position = "fixed";
            domSettings.style.display = "block";
            domFooter.style.display = "block";
+           dom.style.overflowY = "scroll";
+           dom.position = "fixed";
         }
     }  
     
