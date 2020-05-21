@@ -21,7 +21,7 @@ body{
 
 header{
     background: #505050;
-    padding: 20px;
+    padding: 5px;
     margin-bottom: 30px;
     text-align: center;
 }
@@ -89,13 +89,10 @@ header{
 
 .wrapper{
     text-align: center;
-    padding: 30px;
-    margin: 20px;
+    margin-top: 20px;
 }
 
 .field{
-
-    margin: 10px;
     display: inline-block;
     position: relative;
     align-self: center;
@@ -134,7 +131,7 @@ button{
 footer{
     position: fixed;
     bottom: 0;
-    width: 100%;
+    width: 100vw;
     background: #505050;
     padding: 20px;
     text-align: center;
@@ -323,8 +320,9 @@ input[type=checkbox]:disabled+label {
 
 
 @media (pointer:none), (pointer:coarse) {
+    
     html, body{
-        overflow: visible;
+        overflow: scroll;
     }
 
     .row{
@@ -337,11 +335,18 @@ input[type=checkbox]:disabled+label {
 
     .columnMiddle{
         width:  100%;
+        min-width: 0px;
     }
 
     .columnRight{
         width: 100%;
         text-align: center;
+        min-width: 0px;
+    }
+
+    #canvas{
+        width: 80vw;
+        height: 80vw;
     }
 
     .options{

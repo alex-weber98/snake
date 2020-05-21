@@ -2,8 +2,7 @@
 
 
 const canvas = document.getElementById("canvas");
-canvas.width = 500;
-canvas.height = 500;
+
 var ctx = canvas.getContext("2d");
 
 document.addEventListener("keydown", keyPressed)
@@ -32,6 +31,22 @@ cbxBorder.checked = true;
 document.addEventListener('touchstart', handleTouchStart, false);        
 document.addEventListener('touchmove', handleTouchMove, false);
 
+var isMobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i)
+
+if(!isMobile){
+    canvas.width = 500;
+    canvas.height = 500;
+}
+else{
+    canvas.width = vw(90);
+    canvas.height = vw(90);
+}
+
+function vw(v) {
+    var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    return (v * w) / 100;
+  }
+  
 
 var xDown = null;                                                        
 var yDown = null;  
