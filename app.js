@@ -27,9 +27,8 @@ numFieldCount.onchange = function() {fieldSizeChange()};
 const cbxLabel = document.getElementById("cbxLabel");
 cbxBorder.checked = true;
 
-
-document.addEventListener('touchstart', handleTouchStart, false);        
-document.addEventListener('touchmove', handleTouchMove, false);
+canvas.addEventListener('touchstart', handleTouchStart, false);        
+canvas.addEventListener('touchmove', handleTouchMove, false);
 
 var isMobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i)
 
@@ -67,18 +66,18 @@ function handleTouchMove(evt){
 
     if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
         if ( xDiff > 0 ) {
-            currentDirection = directions.Left;
+            validateDirectionChange(directions.Left);
         /* left swipe */ 
         } else {
-            currentDirection = directions.Right;
+            validateDirectionChange(directions.Right);
         /* right swipe */
         }                       
     } else {
         if ( yDiff > 0 ) {
-            currentDirection = directions.Up;
+            validateDirectionChange(directions.Up);
         /* up swipe */ 
         } else { 
-            currentDirection = directions.Down;
+            validateDirectionChange(directions.Down);
         /* down swipe */
         }                                                                 
     }
@@ -178,11 +177,22 @@ async function StartingGame(){
     await sleep(1000);
     notification.innerHTML = 2;
     await sleep(1000);
+    scrollToTop();
     notification.innerHTML = 1;
     await sleep(1000);
 
+    lockYAxis(true);
+
     startGame();
 }
+
+const scrollToTop = () => {
+    const c = document.documentElement.scrollTop || document.body.scrollTop;
+    if (c > 0) {
+      window.requestAnimationFrame(scrollToTop);
+      window.scrollTo(0, c - c / 8);
+    }
+  };
 
 
 
@@ -229,6 +239,25 @@ function optionsDisable(boolean){
     numFieldCount.disabled = boolean;
     cbxBorder.disabled = boolean;
     cbxLabel.disabled = boolean;
+
+    if(!boolean){
+        lockYAxis(false);
+    }
+}
+
+
+function lockYAxis(boolean){
+    
+    if(isMobile){
+        
+        if(boolean){
+            document.getElementsByTagName("html")[0].style.overflowY = "hidden";
+        }
+        else{
+            document.getElementsByTagName("html")[0].style.overflowY = "scroll";
+        }
+    }  
+    
 }
 
 
@@ -316,9 +345,14 @@ function createApple(){
 
 function keyPressed(event){
 
-   if(event.keyCode != getOpDirection(currentDirection)){
+    validateDirectionChange(event.keyCode);
+}
 
-        currentDirection = event.keyCode
+function validateDirectionChange(direction){
+    
+    if(direction != getOpDirection(currentDirection)){
+
+        currentDirection = direction
    } 
 }
 
