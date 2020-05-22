@@ -224,7 +224,7 @@ function drawField(x, y){
 
 function clearField(x, y){
 
-    ctx.clearRect(x*fieldsSize, y *fieldsSize, fieldsSize, fieldsSize);
+    //ctx.clearRect(x*fieldsSize, y *fieldsSize, fieldsSize, fieldsSize);
     ctx.fillStyle = getFieldColor(x,y);
     ctx.fillRect(x*fieldsSize, y *fieldsSize, fieldsSize, fieldsSize);
 }
