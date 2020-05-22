@@ -254,21 +254,44 @@ function lockYAxis(boolean){
 
         if(boolean){
 
-            domSettings.style.display = "none"
-            domFooter.style.display = "none"
-            dom.style.overflowY = "hidden";
-            dom.position = "fixed";
-            scrollToTop();
+            //domSettings.style.display = "none"
+            //domFooter.style.display = "none"
+            //dom.style.overflow = "hidden";
+            //dom.position = "fixed";
+            //scrollToTop();
+            enable();
         }
         else{
-           domSettings.style.display = "block";
-           domFooter.style.display = "block";
-           dom.style.overflowY = "scroll";
-           dom.position = "fixed";
+           //domSettings.style.display = "block";
+           //domFooter.style.display = "block";
+           //dom.style.overflowY = "scroll";
+           //dom.position = "fixed";
+           disable();
         }
     }  
     
 }
+
+// src/utils/scroll-lock.js
+const $body = document.querySelector('body');
+let scrollPosition = 0;
+
+
+  function enable() {
+    scrollPosition = window.pageYOffset;
+    $body.style.overflow = 'hidden';
+    $body.style.position = 'fixed';
+    $body.style.top = `-${scrollPosition}px`;
+    $body.style.width = '100%';
+  }
+  function disable() {
+    $body.style.removeProperty('overflow');
+    $body.style.removeProperty('position');
+    $body.style.removeProperty('top');
+    $body.style.removeProperty('width');
+    window.scrollTo(0, scrollPosition);
+  }
+
 
 
 function getFieldColor(x, y){
