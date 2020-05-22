@@ -258,6 +258,7 @@ function lockYAxis(boolean){
             domFooter.style.display = "none"
             dom.style.overflowY = "hidden";
             dom.position = "fixed";
+            scrollToTop();
         }
         else{
            domSettings.style.display = "block";

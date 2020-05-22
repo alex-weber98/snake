@@ -17,6 +17,7 @@ body{
     background: #505050;
     box-sizing: border-box;
     min-height: 800px;
+    resize: both;
 }
 
 header{
@@ -133,7 +134,7 @@ footer{
     bottom: 0;
     width: 100vw;
     background: #505050;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
     color: white;
     margin-top: 10px;
