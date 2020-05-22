@@ -255,7 +255,7 @@ function lockYAxis(boolean){
         if(boolean){
 
             domSettings.style.display = "none"
-            domFooter.style.display = "none"
+            //domFooter.style.display = "none"
             //dom.style.overflow = "hidden";
             //dom.position = "fixed";
             //scrollToTop();
@@ -263,7 +263,7 @@ function lockYAxis(boolean){
         }
         else{
            domSettings.style.display = "block";
-           domFooter.style.display = "block";
+           //domFooter.style.display = "block";
            //dom.style.overflowY = "scroll";
            //dom.position = "fixed";
            disable();
