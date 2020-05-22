@@ -171,7 +171,7 @@ async function StartingGame(){
     optionsDisable(true);
 
     scrollToTop();
-    await sleep(250);
+    await sleep(400);
     lockYAxis(true);
 
     notification.innerHTML = 3;
@@ -254,16 +254,16 @@ function lockYAxis(boolean){
 
         if(boolean){
 
-            //domSettings.style.display = "none"
-            //domFooter.style.display = "none"
+            domSettings.style.display = "none"
+            domFooter.style.display = "none"
             //dom.style.overflow = "hidden";
             //dom.position = "fixed";
             //scrollToTop();
             enable();
         }
         else{
-           //domSettings.style.display = "block";
-           //domFooter.style.display = "block";
+           domSettings.style.display = "block";
+           domFooter.style.display = "block";
            //dom.style.overflowY = "scroll";
            //dom.position = "fixed";
            disable();
