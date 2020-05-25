@@ -237,6 +237,7 @@ function optionsDisable(boolean){
     numFieldCount.disabled = boolean;
     cbxBorder.disabled = boolean;
     cbxLabel.disabled = boolean;
+    Fullscreen(!boolean);
 
     if(!boolean){
         lockYAxis(false);
@@ -268,8 +269,23 @@ function lockYAxis(boolean){
            //dom.position = "fixed";
            disable();
         }
-    }  
+    }     
+}
+
+
+function Fullscreen(boolean){
+    var doc = window.document;
+    var docEl = doc.documentElement;
+  
+    var requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
+    var cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
     
+    if(boolean){
+        requestFullScreen.call(docEl);
+    }
+    else{
+        cancelFullScreen.call(doc);
+    }
 }
 
 // src/utils/scroll-lock.js
