@@ -274,18 +274,18 @@ function lockYAxis(boolean){
 
 
 function Fullscreen(boolean){
-    var doc = window.document;
-    var docEl = doc.documentElement;
-  
-    var requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
-    var cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
-    
-    if(boolean){
-        requestFullScreen.call(docEl);
-    }
-    else{
-        cancelFullScreen.call(doc);
-    }
+    //var doc = window.document;
+    //var docEl = doc.documentElement;
+  //
+    //var requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
+    //var cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
+    //
+    //if(boolean){
+    //    requestFullScreen.call(docEl);
+    //}
+    //else{
+    //    cancelFullScreen.call(doc);
+    //}
 }
 
 // src/utils/scroll-lock.js
